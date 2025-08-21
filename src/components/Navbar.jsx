@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
-  { name: "Inicio", href: "#hero" },
-  { name: "Planes", href: "#planes" },
-  { name: "Horarios", href: "#horarios" },
-  { name: "Máquinas", href: "#maquinas" },
-  { name: "Coaches", href: "#coaches" },
-  { name: "Clases", href: "#clases" },
+  { name: "Inicio", path: "/" },
+  { name: "Planes", path: "/servicios" },
+  { name: "Horarios", path: "/horarios" },
+  { name: "Máquinas", path: "/maquinas" },
+  { name: "Coaches", path: "/equipo" },
+  { name: "Clases", path: "/clases" },
 ];
 
 const socialLinks = [
@@ -15,6 +16,25 @@ const socialLinks = [
 ];
 
 export default function Navbar() {
+  const [activeSection, setActiveSection] = useState("Inicio");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Actualizar sección activa cuando cambia la ruta
+  useEffect(() => {
+    const currentLink = navLinks.find(link => link.path === location.pathname);
+    if (currentLink) {
+      setActiveSection(currentLink.name);
+    } else if (location.pathname === "/") {
+      setActiveSection("Inicio");
+    }
+  }, [location.pathname]);
+
+  const handleNavClick = (sectionName, path) => {
+    setActiveSection(sectionName);
+    navigate(path);
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-negro bg-opacity-95 border-b-2 border-dorado shadow-lg">
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -23,13 +43,17 @@ export default function Navbar() {
         {/* Links */}
         <div className="flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.name}
-              href={link.href}
-              className="text-lg font-semibold text-white hover:text-dorado transition tracking-wide uppercase"
+              onClick={() => handleNavClick(link.name, link.path)}
+              className={`text-lg font-semibold transition tracking-wide uppercase cursor-pointer ${
+                activeSection === link.name 
+                  ? 'text-dorado border-b-2 border-dorado pb-1' 
+                  : 'text-white hover:text-dorado'
+              }`}
             >
               {link.name}
-            </a>
+            </button>
           ))}
         </div>
         {/* Social */}

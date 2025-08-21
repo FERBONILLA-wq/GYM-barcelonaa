@@ -1,5 +1,6 @@
 {
   "name": "gym-barcelona",
+   "homepage": "https://ingreyeslara.github.io/gym-barcelona",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +14,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^7.7.0"
+    "react-router-dom": "^7.7.0",
+    "tiny-glob": "^0.2.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

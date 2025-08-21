@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaUsers, FaDumbbell, FaChalkboardTeacher, FaClipboardList, FaQuoteLeft, FaBicycle, FaSpa, FaFistRaised, FaRunning, FaMusic, FaHeartbeat, FaLeaf, FaGripHorizontal } from 'react-icons/fa';
 
 const carouselImages = [
-  'https://images.unsplash.com/photo-1517960413843-0aee8e2d471c?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80',
+  'https://static.vecteezy.com/system/resources/previews/022/653/711/non_2x/treadmill-in-modern-gym-toned-image-3d-rendering-generative-ai-free-photo.jpg',
+  'https://png.pngtree.com/background/20230528/original/pngtree-gym-is-reflected-in-an-odd-light-picture-image_2773779.jpg',
+  'https://png.pngtree.com/background/20230528/original/pngtree-the-gym-room-for-home-is-black-with-barbells-picture-image_2780047.jpg',
+  'https://png.pngtree.com/background/20230610/original/pngtree-the-gym-scene-where-people-are-sitting-in-a-gym-picture-image_3108802.jpg'
 ];
 
 const stats = [
@@ -136,30 +137,41 @@ export default function Home() {
       </div>
 
       {/* Estadísticas animadas */}
-      <section id="stats" className="w-full py-16 flex flex-col items-center bg-negro">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+      <section id="stats" className="w-full py-20 flex flex-col items-center bg-gradient-to-br from-negro via-[#1a1a1a] to-negro">
+        <h2 className="text-4xl font-bold text-dorado mb-12 text-center">Nuestros Números</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 max-w-6xl">
           {stats.map((stat, idx) => (
-            <div key={stat.label} className="flex flex-col items-center bg-cafe rounded-xl p-6 shadow-lg border-4 border-dorado w-44">
-              {stat.icon}
-              <span className="text-3xl font-bold text-dorado mt-2">
-                <AnimatedCounter value={stat.value} />
-              </span>
-              <span className="text-white text-lg mt-1">{stat.label}</span>
+            <div key={stat.label} className="group relative flex flex-col items-center bg-gradient-to-br from-cafe/90 to-cafe-oscuro/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-dorado/30 hover:border-dorado transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_0_rgba(255,215,0,0.3)] min-h-[200px] justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-dorado/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="bg-dorado/20 p-4 rounded-full mb-4 group-hover:bg-dorado/30 transition-all duration-300">
+                  {stat.icon}
+                </div>
+                <span className="text-4xl md:text-5xl font-black text-dorado mb-2 drop-shadow-lg">
+                  <AnimatedCounter value={stat.value} />
+                </span>
+                <span className="text-white text-lg font-semibold text-center tracking-wide">{stat.label}</span>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* Reseñas */}
-      <section className="w-full py-16 flex flex-col items-center bg-[#181818]">
-        <h2 className="text-3xl font-bold text-dorado mb-8">Lo que opinan nuestros clientes</h2>
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+      <section className="w-full py-20 flex flex-col items-center bg-gradient-to-br from-[#181818] via-[#1a1a1a] to-[#181818]">
+        <h2 className="text-4xl font-bold text-dorado mb-12 text-center">Lo que opinan nuestros clientes</h2>
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch max-w-6xl">
           {reviews.map((review, idx) => (
-            <div key={idx} className="bg-cafe rounded-2xl shadow-xl p-8 flex flex-col items-center w-80 border-4 border-dorado relative">
-              <FaQuoteLeft className="absolute top-4 left-4 text-dorado text-2xl" />
-              <img src={review.photo} alt={review.name} className="w-20 h-20 object-cover rounded-full mb-4 border-4 border-dorado" />
-              <p className="text-white text-center mb-4">{review.message}</p>
-              <span className="text-dorado font-bold">{review.name}</span>
+            <div key={idx} className="group relative flex flex-col items-center bg-gradient-to-br from-cafe/90 to-cafe-oscuro/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-dorado/30 hover:border-dorado transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_0_rgba(255,215,0,0.3)] min-h-[300px] justify-center w-80">
+              <div className="absolute inset-0 bg-gradient-to-br from-dorado/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10 flex flex-col items-center">
+                <FaQuoteLeft className="absolute -top-2 -left-2 text-dorado text-3xl opacity-60" />
+                <div className="bg-dorado/20 p-4 rounded-full mb-6 group-hover:bg-dorado/30 transition-all duration-300">
+                  <img src={review.photo} alt={review.name} className="w-20 h-20 object-cover rounded-full border-4 border-dorado/50 group-hover:border-dorado transition-all duration-300" />
+                </div>
+                <p className="text-white text-center mb-6 text-lg leading-relaxed">{review.message}</p>
+                <span className="text-dorado font-bold text-xl tracking-wide">{review.name}</span>
+              </div>
             </div>
           ))}
         </div>

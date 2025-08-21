@@ -8,7 +8,7 @@ const plans = [
     description: 'Acceso por un mes',
     icon: <FaIdCard className="text-dorado text-4xl mb-4" />,
     extra: 'A partir de 2+ meses: $300/mes',
-    bg: 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=600&q=80',
+    bg: 'https://t1.uc.ltmcdn.com/es/posts/5/8/6/cuantas_calorias_se_queman_en_el_gym_48685_orig.jpg',
   },
   {
     name: 'Estudiante',
@@ -16,7 +16,7 @@ const plans = [
     description: 'Presentando credencial escolar',
     icon: <FaUserFriends className="text-dorado text-4xl mb-4" />,
     extra: 'Solo con credencial escolar',
-    bg: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80',
+    bg: 'https://enfoqueweb.uy/wp-content/uploads/2023/04/master14.jpg',
   },
   {
     name: 'Amigo',
@@ -24,7 +24,7 @@ const plans = [
     description: 'Entrena con un amigo',
     icon: <FaUsers className="text-dorado text-4xl mb-4" />,
     extra: 'A partir de 2+ meses: $550/mes',
-    bg: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80',
+    bg: 'https://static.vecteezy.com/system/resources/previews/015/254/732/large_2x/young-sportive-people-doing-exercises-and-holding-ball-together-in-the-gym-photo.jpg',
   },
   {
     name: 'Familiar',
@@ -32,7 +32,7 @@ const plans = [
     description: 'Plan para toda la familia',
     icon: <FaHome className="text-dorado text-4xl mb-4" />,
     extra: 'A partir de 2+ meses: $750/mes',
-    bg: 'https://images.unsplash.com/photo-1517960413843-0aee8e2d471c?auto=format&fit=crop&w=600&q=80',
+    bg: 'https://thumbs.dreamstime.com/b/multiethnic-group-people-training-gym-trainer-sportive-fit-persons-exercising-multiethnic-group-people-training-257549478.jpg',
   },
 ];
 
